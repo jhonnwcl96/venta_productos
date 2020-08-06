@@ -1,0 +1,178 @@
+<br><br><br>
+<div class="container" role="document">
+  <div class="card">
+    <h5 class="card-title text-center w-100">Datos Para La Compra De Productos</h5>
+    <div class="card-body">
+      <form>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="inputEmail4">Apellido Paterno:</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="apellidP">
+              <div class="input-group-prepend">
+                <span class="input-group-text rounded-right" id="validatedInputGroupPrependc"><i
+                    class="far fa-user"></i></span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputEmail4">Apellido Materno:</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="apellidM">
+              <div class="input-group-prepend">
+                <span class="input-group-text rounded-right" id="validatedInputGroupPrependv"><i
+                    class="far fa-user"></i></span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputEmail4">Nombres:</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="nombreUsuario">
+              <div class="input-group-prepend">
+                <span class="input-group-text rounded-right" id="validatedInputGroupPrependn"><i
+                    class="far fa-user"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="exampleInputpwd2">Precio Del Poducto</label>
+            <div class="input-group">
+                <input id="precioTotal" class="form-control" formControlName='precio' readonly value="{{precioProducto}}">
+                <span class="btn disabled"
+                style="background-color: #e9ecef; border: 1px solid rgba(0,0,0,.15); border-radius: 0px 0.25rem 0.25rem 0px;">
+                <i class="fa fa-credit-card"></i></span>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="exampleInputpwd2">Numero De Tarjeta De Credito</label>
+            <div class="input-group">
+              <input id="nro_tarjeta_credito" type="number" class="form-control" placeholder="Ingrese sus nombres">
+              <span class="btn disabled"
+                style="background-color: #e9ecef; border: 1px solid rgba(0,0,0,.15); border-radius: 0px 0.25rem 0.25rem 0px;">
+                <i class="fa fa-credit-card"></i></span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="d-flex justify-content-between align-items-end">
+            <label for="requisitos">Anadir Productos Al Carrito</label>
+            <button class="btn btn-outline-info" type="button" data-toggle="modal" data-target="#aniadirCompra">
+              <i class="fa fa-plus"></i> Añadir
+            </button>
+          </div>
+          <div class="table-responsive mt-3">
+            <table class="table align-middle table-hover table-bordered" id="requerimientos">
+              <thead class="thead-dark">
+                <tr>
+                  <th class="text-center" scope="col">Cantidad</th>
+                  <th class="text-center" scope="col">Color</th>
+                  <th class="text-center" scope="col">Precio</th>
+                  <th class="text-center" scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let productos of listaProducto; index as i">
+                  <td>{{productos.getCantidad()}} </td>
+                  <td>{{productos.getColor()}}</td>
+                  <td>{{productos.getPrecio()}}bs </td>
+                  <td class="text-center">
+                    <div class="btn btn-group" role="group">
+                      <button class="btn btn-outline-danger" type="button" title="borrar producto del carrito"
+                        (click)="eliminarProducto(productos)">
+                        <i class="fa fa-trash-alt"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="exampleInputpwd2">Cantidad Total De Productos</label>
+            <div class="input-group">
+              <input id="precioTotal" class="form-control" formControlName='precio' readonly value="{{cantidadTotal}}">
+              <span class="btn disabled"
+                style="background-color: #e9ecef; border: 1px solid rgba(0,0,0,.15); border-radius: 0px 0.25rem 0.25rem 0px;">
+                <i class="fa fa-credit-card"></i></span>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="exampleInputpwd2">Precio Total De Compra</label>
+            <div class="input-group">
+              <input id="precioTotal" class="form-control" formControlName='precio' readonly value="{{precioTotal}}">
+              <span class="btn disabled"
+                style="background-color: #e9ecef; border: 1px solid rgba(0,0,0,.15); border-radius: 0px 0.25rem 0.25rem 0px;">
+                <i class="fa fa-credit-card"></i></span>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar Compra</button>
+          <button type="button" class="btn btn-primary" (click)="mensaje()">Comprar&nbsp; <i
+              class="fa fa-shopping-cart"></i></button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="invisible">
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui, eaque. Beatae sed quis fugit. Dolorum quasi sint quia
+    aperiam? Unde obcaecati natus nisi vero doloremque? Hic quaerat inventore facilis molestias?
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt blanditiis, inventore officiis quam dolore
+    perspiciatis nam recusandae asperiores expedita quo eum iste, voluptatem harum, porro maiores eligendi commodi.
+    Eaque, vero.
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus eos impedit dolore earum, quos error cum, a
+    nesciunt ipsum illo sapiente laboriosam inventore quod ratione quae beatae aliquam? Iusto, soluta?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo debitis voluptatem ex ab nulla eaque, inventore
+    similique laborum rem eius maxime quod iusto, praesentium tempora veritatis non doloribus eveniet libero!
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam nemo sunt neque eum commodi, enim quam reiciendis
+    facilis adipisci dolores aliquam consequuntur repellendus dicta sed deserunt fugiat repudiandae accusamus incidunt.
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="aniadirCompra" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Productos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="inputEmail4">Cantidad De Productos:</label>
+          <div class="input-group">
+            <input type="number" class="form-control" id="cantidad">
+            <div class="input-group-prepend">
+              <span class="input-group-text rounded-right" id="validatedInputGroupPrependc"><i
+                  class="far fa-user"></i></span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail4">Color De Productos:</label>
+          <select class="custom-select" id="color">
+            <option selected>Seleccione Color</option>
+            <option value="Rojo">Rojo</option>
+            <option value="Verde">Verde</option>
+            <option value="Amarillo">Amarillo</option>
+            <option value="Azul">Azul</option>
+            <option value="Blanco">Blanco</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer d-flex justify-content-between">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="aniadirCarrito()">Aniadir Al
+          Carrito</button>
+      </div>
+    </div>
+  </div>
+</div>
