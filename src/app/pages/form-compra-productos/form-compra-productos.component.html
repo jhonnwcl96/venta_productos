@@ -1,16 +1,27 @@
-<br><br><br>
+<div id="title" class="container py-5 text-center" width="100%">
+  <p class="bg-transparent text-white text-center h3" >Formulario Para La Compra De Productos</p>
+</div>
+<div class="w-100 " id="encabezado">
+  <img class="uk-transition-scale-up uk-transition-opaque card-img-top"
+    src="https://i.pinimg.com/originals/e8/65/4b/e8654b7297ef95e4b5dbc3bdf74dc079.jpg" width="100%" height="120" alt="">
+</div>
+<br>
 <div class="container" role="document">
+  <div class="d-flex justify-content-center align-items-center">
+    <p class="h3 text-center d-inline-block">{{nombreProducto}}</p>&nbsp;&nbsp;
+    <button class="btn btn-outline-info" title="ver informacion del producto a comprar" data-toggle="modal"
+    data-target="#modalDetalles"> <i class="fa fa-info"></i></button>
+  </div><br>
   <div class="card">
-    <h5 class="card-title text-center w-100">Datos Para La Compra De Productos</h5>
     <div class="card-body">
       <form>
-        <div class="form-row">
+        <div class="row">
           <div class="form-group col-md-4">
             <label for="inputEmail4">Apellido Paterno:</label>
             <div class="input-group">
-              <input type="text" class="form-control" id="apellidP">
+              <input type="text" class="form-control" id="apellidPt" value="" placeholder="apellido paterno">
               <div class="input-group-prepend">
-                <span class="input-group-text rounded-right" id="validatedInputGroupPrependc"><i
+                <span class="input-group-text rounded-right" ><i
                     class="far fa-user"></i></span>
               </div>
             </div>
@@ -18,21 +29,19 @@
           <div class="form-group col-md-4">
             <label for="inputEmail4">Apellido Materno:</label>
             <div class="input-group">
-              <input type="text" class="form-control" id="apellidM">
+              <input type="text" class="form-control" id="apellidMt" value="" placeholder="apellido materno">
               <div class="input-group-prepend">
-                <span class="input-group-text rounded-right" id="validatedInputGroupPrependv"><i
+                <span class="input-group-text rounded-right"><i
                     class="far fa-user"></i></span>
               </div>
             </div>
           </div>
           <div class="form-group col-md-4">
-            <label for="inputEmail4">Nombres:</label>
+            <label for="inputEmail5">Nombres:</label>
             <div class="input-group">
-              <input type="text" class="form-control" id="nombreUsuario">
-              <div class="input-group-prepend">
-                <span class="input-group-text rounded-right" id="validatedInputGroupPrependn"><i
+              <input type="text" class="form-control" id="nombreUsuario" value="" placeholder="nombres">
+                <span class="input-group-text rounded-right"><i
                     class="far fa-user"></i></span>
-              </div>
             </div>
           </div>
         </div>
@@ -40,16 +49,16 @@
           <div class="form-group col-md-6">
             <label for="exampleInputpwd2">Precio Del Poducto</label>
             <div class="input-group">
-                <input id="precioTotal" class="form-control" formControlName='precio' readonly value="{{precioProducto}}">
+                <input class="form-control bg-white" formControlName='precio' readonly value="{{precioProducto}}">
                 <span class="btn disabled"
                 style="background-color: #e9ecef; border: 1px solid rgba(0,0,0,.15); border-radius: 0px 0.25rem 0.25rem 0px;">
-                <i class="fa fa-credit-card"></i></span>
+                <i class="fa fa-money-bill"></i></span>
             </div>
           </div>
           <div class="form-group col-md-6">
             <label for="exampleInputpwd2">Numero De Tarjeta De Credito</label>
             <div class="input-group">
-              <input id="nro_tarjeta_credito" type="number" class="form-control" placeholder="Ingrese sus nombres">
+              <input type="number" class="form-control" placeholder="numero de tageta de credito" id="targetaC">
               <span class="btn disabled"
                 style="background-color: #e9ecef; border: 1px solid rgba(0,0,0,.15); border-radius: 0px 0.25rem 0.25rem 0px;">
                 <i class="fa fa-credit-card"></i></span>
@@ -95,43 +104,31 @@
           <div class="form-group col-md-6">
             <label for="exampleInputpwd2">Cantidad Total De Productos</label>
             <div class="input-group">
-              <input id="precioTotal" class="form-control" formControlName='precio' readonly value="{{cantidadTotal}}">
+              <input class="form-control bg-white" formControlName='precio' readonly value="{{cantidadTotal}}" >
               <span class="btn disabled"
                 style="background-color: #e9ecef; border: 1px solid rgba(0,0,0,.15); border-radius: 0px 0.25rem 0.25rem 0px;">
-                <i class="fa fa-credit-card"></i></span>
+                <i class="fa fa-sort-numeric-up"></i></span>
             </div>
           </div>
           <div class="form-group col-md-6">
             <label for="exampleInputpwd2">Precio Total De Compra</label>
             <div class="input-group">
-              <input id="precioTotal" class="form-control" formControlName='precio' readonly value="{{precioTotal}}">
+              <input class="form-control bg-white" formControlName='precio' readonly value="{{precioTotal}}">
               <span class="btn disabled"
                 style="background-color: #e9ecef; border: 1px solid rgba(0,0,0,.15); border-radius: 0px 0.25rem 0.25rem 0px;">
-                <i class="fa fa-credit-card"></i></span>
+                <i class="fa fa-money-bill"></i></span>
             </div>
           </div>
         </div>
         <div class="card-footer d-flex justify-content-between">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar Compra</button>
-          <button type="button" class="btn btn-primary" (click)="mensaje()">Comprar&nbsp; <i
+          <button type="button" class="btn btn-secondary" routerLink="home" >Cancelar Compra</button>
+          <button type="button" class="btn btn-primary" (click)="validadCampos()">Comprar&nbsp; <i
               class="fa fa-shopping-cart"></i></button>
         </div>
       </form>
     </div>
   </div>
-  <div class="invisible">
-    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui, eaque. Beatae sed quis fugit. Dolorum quasi sint quia
-    aperiam? Unde obcaecati natus nisi vero doloremque? Hic quaerat inventore facilis molestias?
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt blanditiis, inventore officiis quam dolore
-    perspiciatis nam recusandae asperiores expedita quo eum iste, voluptatem harum, porro maiores eligendi commodi.
-    Eaque, vero.
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus eos impedit dolore earum, quos error cum, a
-    nesciunt ipsum illo sapiente laboriosam inventore quod ratione quae beatae aliquam? Iusto, soluta?
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo debitis voluptatem ex ab nulla eaque, inventore
-    similique laborum rem eius maxime quod iusto, praesentium tempora veritatis non doloribus eveniet libero!
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam nemo sunt neque eum commodi, enim quam reiciendis
-    facilis adipisci dolores aliquam consequuntur repellendus dicta sed deserunt fugiat repudiandae accusamus incidunt.
-  </div>
+  
 </div>
 
 <!-- Modal -->
@@ -172,6 +169,33 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
         <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="aniadirCarrito()">Aniadir Al
           Carrito</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--  modal para ver detalles del producto a comprar-->
+<!-- Modal Detalle Pintura-->
+<div class="modal fade" id="modalDetalles" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-danger text-center  w-100" id="exampleModalLabel">{{nombreProducto}}&nbsp;&nbsp;{{precioProducto}} bs.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img class="uk-transition-scale-up uk-transition-opaque card-img-top" [src]="imagen" alt="">
+        <br>
+        <p id="informacion">
+         Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ipsa quo eius reprehenderit magni fugit sed atque suscipit vero hic. Vel, vitae nostrum laboriosam natus cum quisquam officia recusandae sapiente.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>

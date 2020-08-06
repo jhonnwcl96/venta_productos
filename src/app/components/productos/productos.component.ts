@@ -183,15 +183,15 @@ export class ProductosComponent implements OnInit {
 
   getCombos() {
     this.listaDeProductos = [];
-    this.producto = new Producto(1, "amarillo", "Fondo sellador blanco de paredes, a base de resina acrílica estirenada. Sella y uniforma la superficie.", "../../../assets/images/combos50/combo1.jpg", "anticorr", 11, "Combo 1");
+    this.producto = new Producto(1, "amarillo", "Fondo sellador blanco de paredes, a base de resina acrílica estirenada. Sella y uniforma la superficie.", "../../../assets/images/combos50/combo1.jpg", "Combo 1", 11, "Combo 1");
     this.listaDeProductos.push(this.producto);
-    this.producto = new Producto(1, "amarillo", "PRIMER ALQUÍDICO FONDO ANTICORROSIVO ALQUÍDICO- FENÓLICO DE GRAN ADHERENCIA PARA USO INDUSTRIAL D-20 DESCRIPCIÓN Fondo anticorrosivo a base de resina alquídica modificada, de alto poder antioxidante, excelente adherencia sobre hierro y acero, rápido secado y pigmento inhibidor de la corrosión, libre de plomo y cromo (fosfato de zinc modificado).", "../../../assets/images/combos50/combo2.jpg", "anticorr", 11, "Combo 2");
+    this.producto = new Producto(1, "amarillo", "PRIMER ALQUÍDICO FONDO ANTICORROSIVO ALQUÍDICO- FENÓLICO DE GRAN ADHERENCIA PARA USO INDUSTRIAL D-20 DESCRIPCIÓN Fondo anticorrosivo a base de resina alquídica modificada, de alto poder antioxidante, excelente adherencia sobre hierro y acero, rápido secado y pigmento inhibidor de la corrosión, libre de plomo y cromo (fosfato de zinc modificado).", "../../../assets/images/combos50/combo2.jpg", "Combo 2", 11, "Combo 2");
     this.listaDeProductos.push(this.producto);
-    this.producto = new Producto(1, "amarillo", "PRIMER ALQUÍDICO FONDO ANTICORROSIVO ALQUÍDICO- FENÓLICO DE GRAN ADHERENCIA PARA USO INDUSTRIAL D-20 DESCRIPCIÓN Fondo anticorrosivo a base de resina alquídica modificada, de alto poder antioxidante, excelente adherencia sobre hierro y acero, rápido secado y pigmento inhibidor de la corrosión, libre de plomo y cromo (fosfato de zinc modificado).", "../../../assets/images/combos50/combo3.jpg", "anticorr", 11, "Combo 3");
+    this.producto = new Producto(1, "amarillo", "PRIMER ALQUÍDICO FONDO ANTICORROSIVO ALQUÍDICO- FENÓLICO DE GRAN ADHERENCIA PARA USO INDUSTRIAL D-20 DESCRIPCIÓN Fondo anticorrosivo a base de resina alquídica modificada, de alto poder antioxidante, excelente adherencia sobre hierro y acero, rápido secado y pigmento inhibidor de la corrosión, libre de plomo y cromo (fosfato de zinc modificado).", "../../../assets/images/combos50/combo3.jpg", "antiCombo 3", 11, "Combo 3");
     this.listaDeProductos.push(this.producto);
-    this.producto = new Producto(1, "amarillo", "PRIMER ALQUÍDICO FONDO ANTICORROSIVO ALQUÍDICO- FENÓLICO DE GRAN ADHERENCIA PARA USO INDUSTRIAL D-20 DESCRIPCIÓN Fondo anticorrosivo a base de resina alquídica modificada, de alto poder antioxidante, excelente adherencia sobre hierro y acero, rápido secado y pigmento inhibidor de la corrosión, libre de plomo y cromo (fosfato de zinc modificado).", "../../../assets/images/combos50/combo4.png", "anticorr", 11, "Combo 4");
+    this.producto = new Producto(1, "amarillo", "PRIMER ALQUÍDICO FONDO ANTICORROSIVO ALQUÍDICO- FENÓLICO DE GRAN ADHERENCIA PARA USO INDUSTRIAL D-20 DESCRIPCIÓN Fondo anticorrosivo a base de resina alquídica modificada, de alto poder antioxidante, excelente adherencia sobre hierro y acero, rápido secado y pigmento inhibidor de la corrosión, libre de plomo y cromo (fosfato de zinc modificado).", "../../../assets/images/combos50/combo4.png", "Combo 4", 11, "Combo 4");
     this.listaDeProductos.push(this.producto);
-    this.producto = new Producto(1, "amarillo", "PRIMER ALQUÍDICO FONDO ANTICORROSIVO ALQUÍDICO- FENÓLICO DE GRAN ADHERENCIA PARA USO INDUSTRIAL D-20 DESCRIPCIÓN Fondo anticorrosivo a base de resina alquídica modificada, de alto poder antioxidante, excelente adherencia sobre hierro y acero, rápido secado y pigmento inhibidor de la corrosión, libre de plomo y cromo (fosfato de zinc modificado).", "../../../assets/images/combos50/combo5.jpg", "anticorr", 11, "Combo 5");
+    this.producto = new Producto(1, "amarillo", "PRIMER ALQUÍDICO FONDO ANTICORROSIVO ALQUÍDICO- FENÓLICO DE GRAN ADHERENCIA PARA USO INDUSTRIAL D-20 DESCRIPCIÓN Fondo anticorrosivo a base de resina alquídica modificada, de alto poder antioxidante, excelente adherencia sobre hierro y acero, rápido secado y pigmento inhibidor de la corrosión, libre de plomo y cromo (fosfato de zinc modificado).", "../../../assets/images/combos50/combo5.jpg", "Combo 5", 11, "Combo 5");
     this.listaDeProductos.push(this.producto);
   }
   getEnDescuento() {
@@ -218,23 +218,11 @@ export class ProductosComponent implements OnInit {
   }
 
   setImagen(producto: Producto) {
+    localStorage.setItem('nombreProducto', producto.getNombre());
     localStorage.setItem('imagen', producto.getImagen());
     localStorage.setItem('precio', producto.getPrecio() + "");
     this.router.navigate(['/formulario_compra_productos']);
   }
 
-  toastExitoso(): void {
-    tata.success('Agregado.', 'El merito fue creado con exito.', {
-      duration: 4000,
-      animate: 'slide'
-    });
-  }
-
-  toastError(): void {
-    tata.error('Elinimado', 'El merito fue creado exitosamente', {
-      duration: 4000,
-      animate: 'slide'
-    });
-  }
 }
 

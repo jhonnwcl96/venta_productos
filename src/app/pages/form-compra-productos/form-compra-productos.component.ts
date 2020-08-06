@@ -3,6 +3,7 @@ import { Producto } from '../../models/Producto';
 import { CompraProducto } from '../../models/CompraProducto';
 declare var $: any;
 declare var swal: any;
+declare var tata: any;
 
 @Component({
   selector: 'app-form-compra-productos',
@@ -19,16 +20,27 @@ export class FormCompraProductosComponent implements OnInit {
   cantidadTotal = 0;
   imagen: string = "";
   precioProducto: number = 0;
+
+  nombreProducto="";
   constructor() { }
 
   ngOnInit(): void {
+    this.nombreProducto = localStorage.getItem('nombreProducto');
+
     this.imagen = localStorage.getItem('imagen');
     this.precioProducto = parseInt(localStorage.getItem('precio'));
   }
 
   comprarProducto() { }
-
+ 
+  toastExitoso(): void {
+    tata.success('Agregado.', 'Se Agregaron Productos Al Carrito', {
+      duration: 4000,
+      animate: 'slide'
+    });
+  }
   aniadirCarrito() {
+    this.toastExitoso();
     let cantidad = parseInt($("#cantidad").val());
     let color = $("#color").val();
     let precio = cantidad * this.precioProducto;
@@ -82,5 +94,32 @@ export class FormCompraProductosComponent implements OnInit {
         )
       }
     })
+  }
+
+  validadCampos() {
+    var nombres = $('#nombreUsuario').val();
+    var apellidoP:string = $("#apellidPt").val();
+    let apellidoM:string =String($("#apellidMt").val());
+    let numTargeta:String = $("#targetaC").val();
+    if(nombres==""){
+    console.log("holaaaaaaaaaaaaa");
+    }
+    if(this.listaProducto.length==0){
+      console.log("holaaaaaaaaaaaaa 2222222");
+      }
+    console.log(nombres + "--" + apellidoP + "--" + apellidoM + "----" + numTargeta + "--" + this.listaProducto)
+    if (nombres == "" || apellidoP == undefined || apellidoM == undefined || numTargeta == undefined || this.listaProducto.length==0) {
+      this.mostrarMensajeError();
+    } else {
+      this.mensaje();
+    }
+  }
+
+   
+  mostrarMensajeError() {
+    tata.error('Error', 'Debe llenar todos los campos y aniadir almenos un producto al carrito', {
+      duration: 4000,
+      animate: 'slide'
+    });
   }
 }

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light navbar-expand-xl border border-blue bg-custom-2" >
+<nav class="navbar navbar-light navbar-expand-xl  bg-custom-2" >
     <div class="container justify-content-between">
       <!--<div class="navbar-brand">
         <img src="../../../assets/images/logo/logo.png" width="80" height="80" alt="">
@@ -14,14 +14,17 @@
           <li class="nav-item"><a routerLink="home" (click)="precionar_amburguesa()" class="nav-link text-light" title="ir al inicio de la pagina">Inicio</a></li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-light" routerLinkActive="router-link-active"
-              id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="ver catalogos de los productos">
-              Catalogos
+              id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="ver los tipos de pinturas disponibles">
+              Productos
             </a>
             <div class="dropdown-menu dropdown" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" routerLink="catalogo_anticorrosivas" (click)="precionar_amburguesa()">Pinturas Anticorrosivas</a>
-              <a class="dropdown-item" routerLink="catalogo_automotivas" (click)="precionar_amburguesa()">Pinturas Automotivas</a>
-              <a class="dropdown-item" routerLink="catalogo_impermeabilizante" (click)="precionar_amburguesa()">Pinturas Impermeabilizantes</a>
-              <a class="dropdown-item" routerLink="catalogo_madera" (click)="precionar_amburguesa()">Pinturas Para Madera</a>
+              <a class="dropdown-item" routerLink="todos_los_productos" (click)="precionar_amburguesa()">Todos Los Productos</a>
+              <a class="dropdown-item" routerLink="/pinturas_anticorrosivas" (click)="precionar_amburguesa()">Pinturas Anticorrosivas</a>
+              <a class="dropdown-item" routerLink="/pinturas_automotivas" (click)="precionar_amburguesa()">Pinturas Automotivas</a>
+              <a class="dropdown-item"  routerLink="/pinturas_base_agua" (click)="precionar_amburguesa()">Pinturas Base Agua</a>
+              <a class="dropdown-item"  routerLink="/pinturas_base_solvente" (click)="precionar_amburguesa()">Pinturas Base Solvente</a>
+              <a class="dropdown-item"  routerLink="/pinturas_impermeabilizante" (click)="precionar_amburguesa()">Pinturas Impermeabilizantes</a>
+              <a class="dropdown-item"  routerLink="/pinturas_para_madera" (click)="precionar_amburguesa()">Pinturas Para Madera</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -36,17 +39,14 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-light" routerLinkActive="router-link-active"
-              id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="ver los tipos de pinturas disponibles">
-              Productos
+              id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="ver catalogos de los productos">
+              Catalogos
             </a>
             <div class="dropdown-menu dropdown" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" routerLink="todos_los_productos" (click)="precionar_amburguesa()">Todos Los Productos</a>
-              <a class="dropdown-item" routerLink="/pinturas_anticorrosivas" (click)="precionar_amburguesa()">Pinturas Anticorrosivas</a>
-              <a class="dropdown-item" routerLink="/pinturas_automotivas" (click)="precionar_amburguesa()">Pinturas Automotivas</a>
-              <a class="dropdown-item"  routerLink="/pinturas_base_agua" (click)="precionar_amburguesa()">Pinturas Base Agua</a>
-              <a class="dropdown-item"  routerLink="/pinturas_base_solvente" (click)="precionar_amburguesa()">Pinturas Base Solvente</a>
-              <a class="dropdown-item"  routerLink="/pinturas_impermeabilizante" (click)="precionar_amburguesa()">Pinturas Impermeabilizantes</a>
-              <a class="dropdown-item"  routerLink="/pinturas_para_madera" (click)="precionar_amburguesa()">Pinturas Para Madera</a>
+              <a class="dropdown-item" routerLink="catalogo_anticorrosivas" (click)="precionar_amburguesa()">Pinturas Anticorrosivas</a>
+              <a class="dropdown-item" routerLink="catalogo_automotivas" (click)="precionar_amburguesa()">Pinturas Automotivas</a>
+              <a class="dropdown-item" routerLink="catalogo_impermeabilizante" (click)="precionar_amburguesa()">Pinturas Impermeabilizantes</a>
+              <a class="dropdown-item" routerLink="catalogo_madera" (click)="precionar_amburguesa()">Pinturas Para Madera</a>
             </div>
           </li>
           <li>
@@ -72,11 +72,42 @@
               <a class="dropdown-item" routerLink="home" (click)="cerrarSesion(); precionar_amburguesa()">Cerrar Sesion</a>
             </div>
           </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-light" routerLinkActive="router-link-active"
+              id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="opciones de usuario">
+             Lenguaje
+            </a>
+            <div class="dropdown-menu dropdown" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" routerLink="catalogo_anticorrosivas" (click)="precionar_amburguesa()">Espanol</a>
+              <a class="dropdown-item" routerLink="catalogo_automotivas" (click)="precionar_amburguesa()">Ingles</a>
+              <a class="dropdown-item" routerLink="catalogo_anticorrosivas" (click)="precionar_amburguesa()">Quechua</a>
+              <a class="dropdown-item" routerLink="catalogo_automotivas" (click)="precionar_amburguesa()">Chino Mandarin</a>
+            </div>
+          </li>
         </ng-container>
         <ng-container *ngIf="!getUsuarioSesion()">
-          <li>
-            <a class="ml-1 text-light"  routerLink="/formulario_registro" (click)="precionar_amburguesa()">Registrarme</a>
-            <a class="ml-1 text-light"  routerLink="/formulario_inicio_sesion" (click)="precionar_amburguesa()">I. Sesion</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-light" routerLinkActive="router-link-active"
+              id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="opciones de usuario">
+             opciones
+            </a>
+            <div class="dropdown-menu dropdown" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" routerLink="formulario_registro" (click)="precionar_amburguesa()">Registrarme</a>
+              <a class="dropdown-item" routerLink="formulario_inicio_sesion" (click)="precionar_amburguesa()">Iniciar Sesion</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-light" routerLinkActive="router-link-active"
+              id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="opciones de usuario">
+             Lenguaje
+            </a>
+            <div class="dropdown-menu dropdown" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" routerLink="catalogo_anticorrosivas" (click)="precionar_amburguesa()">Espanol</a>
+              <a class="dropdown-item" routerLink="catalogo_automotivas" (click)="precionar_amburguesa()">Ingles</a>
+              <a class="dropdown-item" routerLink="catalogo_anticorrosivas" (click)="precionar_amburguesa()">Quechua</a>
+              <a class="dropdown-item" routerLink="catalogo_automotivas" (click)="precionar_amburguesa()">Chino Mandarin</a>
+           
+            </div>
           </li>
         </ng-container>
         </ul>
