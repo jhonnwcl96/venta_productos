@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from '../../models/Producto';
 import { CompraProducto } from '../../models/CompraProducto';
+import { Router } from '@angular/router';
 declare var $: any;
 declare var swal: any;
 declare var tata: any;
@@ -22,7 +23,7 @@ export class FormCompraProductosComponent implements OnInit {
   precioProducto: number = 0;
 
   nombreProducto="";
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.nombreProducto = localStorage.getItem('nombreProducto');
@@ -86,6 +87,7 @@ export class FormCompraProductosComponent implements OnInit {
           'La Compra Fue Exitosa',
           'success'
         )
+        
       } else {
         swal.fire(
           'Cancelado!',
@@ -93,6 +95,8 @@ export class FormCompraProductosComponent implements OnInit {
           'error'
         )
       }
+    }).then(()=>{
+      this.router.navigate(['/todos_los_productos']);
     })
   }
 
